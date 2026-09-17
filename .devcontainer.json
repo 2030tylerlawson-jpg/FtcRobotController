@@ -1,0 +1,29 @@
+{
+  "name": "FTC Java/Android Dev Environment",
+  "build": {
+    "dockerfile": "devcontainer.Dockerfile",
+    "context": "."
+  },
+  "remoteUser": "vscode",
+  "containerEnv": {
+    "ANDROID_HOME": "/opt/android-sdk",
+    "ANDROID_SDK_ROOT": "/opt/android-sdk"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-gradle"
+      ],
+      "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.import.gradle.java.home": "/opt/java/openjdk"
+      }
+    }
+  },
+  "postCreateCommand": "printf 'sdk.dir=/opt/android-sdk\\n' > local.properties",
+  "forwardPorts": [],
+  "mounts": [
+    "source=ftc-gradle-cache,target=/home/vscode/.gradle,type=volume"
+  ]
+}
