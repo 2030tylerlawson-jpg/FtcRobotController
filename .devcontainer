@@ -1,6 +1,6 @@
 {
   "name": "FTC Java Dev Environment",
-  "image": "://microsoft.com",
+  "image": "mcr.microsoft.com/devcontainers/java:1-17-bookworm",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -10,7 +10,7 @@
     }
   },
   "features": {
-    "ghcr.io/devcontainers/features/common-utils:1": {}
+    "ghcr.io/devcontainers/features/common-utils:2": {}
   },
-  "postCreateCommand": "mkdir -p ~/android-sdk && echo \"sdk.dir=$HOME/android-sdk\" > local.properties"
+  "postCreateCommand": "mkdir -p \"$HOME/android-sdk\" && printf 'sdk.dir=%s/android-sdk\\n' \"$HOME\" > local.properties"
 }
